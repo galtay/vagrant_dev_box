@@ -1,0 +1,39 @@
+---
+- hosts: all
+  vars:
+      remote_user: vagrant
+  remote_user: "{{ remote_user }}"
+  tasks:
+
+    - name: install with apt
+      apt: name={{ item }}
+      with_items:
+          - zsh
+          - tmux
+          - emacs-nox
+          - python-pip
+          - python-virtualenv
+          - python-numpy
+          - python-matplotlib
+          - ipython
+          - yaml-mode
+      sudo: yes
+
+    - name: install with pip
+      pip: name={{ item }}
+      with_items:
+          - sphinx
+      sudo: yes
+
+    - name: clone oh-my-zsh repo
+      git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ remote_user }}/.oh-my-zsh
+
+    - name: copy dot files
+      copy: src=dot_files/{{ item.src }} dest=/home/{{ remote_user }}/{{ item.dest }}
+      with_items:
+          - { src: "dot_zshrc", dest: ".zshrc" }
+          - { src: "dot_emacs", dest: ".emacs" }
+
+    - name: set zsh as default default shell
+      user: name="{{ remote_user }}" shell=/bin/zsh
+      sudo: yes
