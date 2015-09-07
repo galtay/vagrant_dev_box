@@ -34,3 +34,12 @@ whatever username you are using on your local machine.  Then the playbook
 can be run locally using the command,
 
     ansible-playbook -i inventory_local.ini -s -K provision/playbook.yaml
+
+## Agnoster Fonts
+
+In order to get this zsh theme to render correctly, I had to install some
+new fonts.  A script is included to do this (``install_powerline_fonts.sh``).
+Note that you may have to modify the paths slightly.  Also, the font changes
+did not take effect until I looged out of the current session and logged back
+in.  Once they are installed locally they will be available to the virtual
+machine too.
