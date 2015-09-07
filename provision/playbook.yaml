@@ -34,6 +34,6 @@
           - { src: "dot_zshrc", dest: ".zshrc" }
           - { src: "dot_emacs", dest: ".emacs" }
 
-    - name: set zsh as default default shell
+    - name: set zsh as default shell
       user: name={{ remote_user }} shell=/bin/zsh
       sudo: yes
