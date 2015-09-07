@@ -11,6 +11,7 @@
           - zsh
           - tmux
           - emacs
+          - emacs-goodies-el
           - python-pip
           - python-virtualenv
           - python-numpy
