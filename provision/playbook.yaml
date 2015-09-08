@@ -10,6 +10,9 @@
       with_items:
           - zsh
           - tmux
+          - build-essential
+          - libssl-dev
+          - openssl
           - emacs
           - emacs-goodies-el
           - python-pip
@@ -34,6 +37,7 @@
       with_items:
           - { src: "dot_zshrc", dest: ".zshrc" }
           - { src: "dot_emacs", dest: ".emacs" }
+          - { src: "dot_tmux_dot_conf", dest: ".tmux.conf" }
 
     - name: set zsh as default shell
       user: name={{ remote_user }} shell=/bin/zsh
